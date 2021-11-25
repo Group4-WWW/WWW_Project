@@ -8,7 +8,7 @@
         }
 
         public function insertClientRequest($fullname, $email, $message){
-            
+            $some_variable = 1;
         }
 
     }
