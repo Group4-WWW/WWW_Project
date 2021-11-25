@@ -58,7 +58,7 @@
 				<div class="send send_contact">	
 					<form method="post" action="success.php" id="contact">
 						<input required type="text" name="review_name" placeholder="Enter your name">
-						<input required type="text" name="review_email" placeholder="Your email">
+						<input required type="email" name="review_email" placeholder="Your email">
 						<textarea name="review_text"></textarea>
 						<input class="btn" type="submit" value="send" name="submit">
 					</form>
