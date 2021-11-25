@@ -1,5 +1,5 @@
 <?php 
-	    $title = "Index";
+	    $title = "Contacts";
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
 	
@@ -56,11 +56,11 @@
 				<p>Send your requests or questions to our online school </p>
 	
 				<div class="send send_contact">	
-					<form method="post" action="#" id="contact">
-						<input type="text" name="review_name" placeholder="Enter your name">
-						<input type="text" name="review_email" placeholder="Your email">
+					<form method="post" action="success.php" id="contact">
+						<input required type="text" name="review_name" placeholder="Enter your name">
+						<input required type="text" name="review_email" placeholder="Your email">
 						<textarea name="review_text"></textarea>
-						<input class="btn" type="submit" value="send">
+						<input class="btn" type="submit" value="send" name="submit">
 					</form>
 				</div>
 

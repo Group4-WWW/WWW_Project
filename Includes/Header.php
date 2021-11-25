@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php echo $title?></title>
+	<title><?php echo $title ?></title>
 	<meta name="description" content="Owl online school" />
 	<meta name="keywords" content="courses,knowledge, online, education" />
 	<link rel="stylesheet" href="assets/css/style.css">
