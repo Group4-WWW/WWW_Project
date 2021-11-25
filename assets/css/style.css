@@ -168,7 +168,9 @@ hr {
 }
 
 .lables_passreg_text {
-  font-size: 1em;
+  font-size: 0.7em;
+  margin-top: 3%;
+  margin-left: 2%;
 }
 
 .sidebar ul {
