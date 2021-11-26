@@ -2,6 +2,7 @@
 	    $title = "Contacts";
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
+		require_once "includes/auth.php";
 	
 ?>	
 
@@ -18,19 +19,7 @@
 					</form>
 				</div>
 
-				<div class="sidebar">
-					<h2>Login</h2>
-					<form method="post" action="#" id="login">
-						
-						<input type="text" name="login_field" placeholder="email" />
-						<input type="password" name="password_field" placeholder="password" />
-						<input type="submit" class="btn" value="sign in" />
-						<div class="lables_passreg_text">
-							<span><a href="#">Forgot your password?</a></span> | <span><a href="#">Sign up</a></span>
-						</div>
-
-					</form>
-				</div>
+				<?php require_once "includes/sidebar.php";?>
 
 				<div class="sidebar">
 					<h2>Updates</h2>

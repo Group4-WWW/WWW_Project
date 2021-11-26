@@ -16,7 +16,7 @@
             else{                                       //if passwords match try to insert user in the user_login table
                 $result = $userNew->insertUser($username,$password);
                 if(!$result){                           //if the return is false, then there's already a user
-                    echo "<p>User by this name already exists! Please try a different username</p>";
+                    echo "<p >User by this name already exists! Please try a different username</p>";
                 }
                 else{                                   //else insert the user in the user_info table
                     $fullname = strip_tags($_POST['fullname']);
@@ -27,13 +27,8 @@
                     $userId = $userNew->getUserId($username); //get the user id from the user_login table
 
                     $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2); //insert user in user_info table
-                    
-                    if(!$insertUserInfo){   //if the insertion operation fails, also delete the user from user_login table
-                        $deleteUser = $userNew->deleteByUserId($userId['user_id']);
-                    }
-                    else{
-                        header("location: welcome.php");
-                    }
+                    $_SESSION['fullname'] = $fullname;
+                    header("Location: welcome.php");
                 }
             }
         }

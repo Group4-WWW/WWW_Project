@@ -11,14 +11,13 @@
 			<div class="sidebar_container">
 
 				<div class="sidebar">
-                    <h2><a href="Profile.html">Profile</a></h2>
-					<form method="post" action="#" id="Profile">
-						<div class="image">
-                            <img src="" alt="Profile picture">
-                        </div>
-						<p>Student name</p>
-						<p>Student email</p>
-					</form>
+					<a href="profile.php">
+						<h2>Profile</h2>
+							<div class="image">
+								<img src="" alt="Profile picture">
+							</div>
+							<p>Student name</p>
+					</a>
 				</div>
 
 				<div class="sidebar">

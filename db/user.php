@@ -68,6 +68,23 @@
                 echo $e->getMessage();
             }
         }
+        public function getUser($username, $password){
+            try {
+                $sql = "SELECT * FROM user_login WHERE username = :username AND password = :password";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam(':username',$username);
+                $stmnt->bindparam(':password',$password);
+                $stmnt->execute();
+    
+                $result = $stmnt->fetch();
+                return $result;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                
+                return false;
+            }
+        }
         public function deleteByUserId($userId){
             try {
                 $sql = "DELETE FROM user_login WHERE user_id = :userId";

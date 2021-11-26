@@ -7,12 +7,14 @@
          $email = strip_tags($_POST['review_email']);
          $message = strip_tags($_POST['review_text']);
          $isSuccess = $crud->insertClientRequest($fullname, $email, $message);
-     }
- 
-     if($isSuccess){
-         echo "<h1 class='text-center alert-success'> Successfully Registered </h1>";
+         if($isSuccess){
+            echo "<h1 class='text-center alert-success'> Successfully Registered </h1>";
+        }
+        else{
+            echo "<h1 class='alert alert-danger text-center'> Process was not complete </h1>";
+        }
      }
      else{
-         echo "<h1 class='alert alert-danger text-center'> Process was not complete </h1>";
+         echo "Error! Process not complete!";
      }
 ?>
