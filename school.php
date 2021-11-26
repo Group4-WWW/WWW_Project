@@ -41,21 +41,36 @@
 				<h2> Graphic Design for beginners </h2>
 				<a href="#"><img src="assets/img/beginners.jpg" height="200" width="350" > </a>
 				<br>
-				<a href=" Graphic Design for beginners.pdf"  download=""><img src="assets\img\button.png" alt= "Design for beginners" height="70px"></a> 
+				<?php if(!isset($_SESSION['username'] )){
+					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
+				 }
+				 else{
+					echo "<a href='downloads/Graphic Design for beginners.pdf' download=''><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
+				}?>
 				<br>
 				<hr>
 				<br>
 			</div>
-			
-			
+
 			<div class= "container">
 				<h2> Graphic Design for Pro </h2>
 				<a href="#"><img src="assets/img/profession.jpeg" height="200" width="350" > </a>
 				<br>
-				<a href="Design for Pro.pdf"  download=""><img src="assets\img\button.png" alt= "Design for Pro" height="70px"></a> 
+				<?php if(!isset($_SESSION['username'] )){
+					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
+				 }
+				 else{
+					echo "<a href='downloads/Design for Pro.pdf' download=''><img src='assets\img\button.png' alt= 'Design for Pro' height='70px'></a>";
+				}?>
+				<br>
+				<hr>
 				<br>
 			</div>
-			
+			<script>
+					function pleaseLogin(){
+						alert("Please Login to download!");
+					}
+			</script>
 
 		</div>
 
