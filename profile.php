@@ -1,5 +1,5 @@
 <?php 
-	    $title = "Index";
+	    $title = "Your Profile";
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
 	
