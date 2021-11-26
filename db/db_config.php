@@ -1,4 +1,5 @@
 <?php 
+//setting up connection with database
     $host = '127.0.0.1:3306';
     $db = 'www_project';
     $user = "root";
@@ -18,4 +19,5 @@
     require_once 'user.php';
 
     $crud = new crud($pdo);
+    $userNew = new user($pdo);
 ?>

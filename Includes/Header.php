@@ -6,6 +6,7 @@
 	<title><?php echo $title ?></title>
 	<meta name="description" content="Owl online school" />
 	<meta name="keywords" content="courses,knowledge, online, education" />
+	
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -28,7 +29,6 @@
 					<li><a href="show.php">Language courses</a></li>
 					<li><a href="information.php">Information</a></li>
 					<li><a href="contacts.php">Contacts</a></li>
-					<li><a href="Signup.php">Sign up</a></li>
 				</ul>
 
 			</div>

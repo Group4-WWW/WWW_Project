@@ -25,7 +25,7 @@
 						<input type="password" name="password_field" placeholder="password" />
 						<input type="submit" class="btn" value="sign in" />
 						<div class="lables_passreg_text">
-							<span><a href="#">Forgot your password?</a></span> | <span><a href="#">Sign up</a></span>
+							<span><a href="#">Forgot your password?</a></span> | <span><a href="signup.php">Sign up</a></span>
 						</div>
 
 					</form>
@@ -132,13 +132,4 @@
 	</div>
 
 
-	<div class="footer">
-		<p>Viktoryia Hrechka</p>
-		<p><a href = "contacts.html"> viktoryia.hrechka@knf.stud.vu.lt</a></p>
-		<p>Vilnius University, Kaunas Faculty, ISCSen0</p>
-		<p>2021-2022</p>
-	
-	</div>
-	
-</body>
-</html>
+<?php include_once "includes/footer.php";?>
