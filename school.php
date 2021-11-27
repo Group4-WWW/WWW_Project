@@ -41,7 +41,7 @@
 				<h2> Graphic Design for beginners </h2>
 				<a href="#"><img src="assets/img/beginners.jpg" height="200" width="350" > </a>
 				<br>
-				<?php if(!isset($_SESSION['username'] )){
+				<?php if(!isset($_SESSION['id'] )){
 					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
 				 }
 				 else{
@@ -56,7 +56,7 @@
 				<h2> Graphic Design for Pro </h2>
 				<a href="#"><img src="assets/img/profession.jpeg" height="200" width="350" > </a>
 				<br>
-				<?php if(!isset($_SESSION['username'] )){
+				<?php if(!isset($_SESSION['id'] )){
 					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
 				 }
 				 else{

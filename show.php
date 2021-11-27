@@ -42,7 +42,7 @@
 				<h2> English from A1-B1 </h2>
 				<a href="#"><img src="assets/img/english.png" height="200" width="350" > </a>
 				<br>
-				<?php if(!isset($_SESSION['username'] )){
+				<?php if(!isset($_SESSION['id'] )){
 					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Complete English Course A1-A2' height='70px'></a>";
 				 }
 				 else{
@@ -56,7 +56,7 @@
 				<h2> English from B2-C1 </h2>
 					<a href="#"><img src="assets/img/level EN.png" height="200" width="350" > </a>
 					<br>
-					<?php if(!isset($_SESSION['username'] )){
+					<?php if(!isset($_SESSION['id'] )){
 						echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
 					}
 					else{
@@ -71,7 +71,7 @@
 				<h2> German from A1-B1 </h2>
 					<a href="#"><img src="assets/img/de.png" height="200" width="350" > </a>
 					<br>
-					<?php if(!isset($_SESSION['username'] )){
+					<?php if(!isset($_SESSION['id'] )){
 						echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'German A1-A2' height='70px'></a>";
 					}
 					else{
@@ -86,7 +86,7 @@
 				<h2> German from  B2-C1 </h2>
 						<a href="#"><img src="assets/img/level EN.png" height="200" width="350" > </a>
 						<br>
-						<?php if(!isset($_SESSION['username'] )){
+						<?php if(!isset($_SESSION['id'] )){
 							echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'German A1-A2' height='70px'></a>";
 						}
 						else{

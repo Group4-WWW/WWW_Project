@@ -51,7 +51,8 @@
                 $flag = true;
             }
             else{
-                $_SESSION['username'] = $username;
+                $id = $result['user_id'];
+                $_SESSION['id'] = $id;
                 header("location: index.php");
             }  
         ?>

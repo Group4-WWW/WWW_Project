@@ -45,5 +45,39 @@
             }
         }
 
+        public function editUserInfo($fullname, $email, $dob, $security1, $security2, $userId){
+            try {
+                $sql = "UPDATE `user_info` SET `fullname`=:fullname,`email`=:email,`security_question1`=:security1,`security_question2`=:security2,`dob`=:dob WHERE user_id = :userId";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam(':userId',$userId);
+                $stmnt->bindparam(':fullname',$fullname);
+                $stmnt->bindparam(':email',$email);
+                $stmnt->bindparam(':dob',$dob);
+                $stmnt->bindparam(':security1',$security1);
+                $stmnt->bindparam(':security2',$security2);
+                $stmnt->execute();
+
+                return true;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                
+                return false;
+            }
+        }
+        public function deleteUserById($userId){
+            try {
+                $sql = "DELETE FROM user_info WHERE user_id = :userId";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam(':userId',$userId);
+                $stmnt->execute();
+
+                return true;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>

@@ -1,8 +1,23 @@
 <?php 
-	    $title = "Index";
+	    $title = "Edit Profile";
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
-	
+		if(!isset($_SESSION['id'])){
+			header('location: index.php');
+		}
+		else{
+			if(!isset($_GET['id'])){
+				echo "<h1 class=''>Error!</h1>";
+			}
+			else{
+				$id = $_GET['id'];
+				$username = $userNew->getUserNameById($id);
+				$result = $userNew->getUserByUserName($username['username']);
+		
+				if(!$result){
+					echo "<h1 class=''>Error!</h1>";
+				}
+				else{
 ?>	
 
 
@@ -11,16 +26,6 @@
 			
 			<div class="sidebar_container">
 			
-                <div class="sidebar">
-					<h2><a href="Profile.html">Profile</a></h2>
-					<form method="post" action="#" id="Profile">
-						<div class="image">
-                            <img src="" alt="Profile picture">
-                        </div>
-						<p>Student name</p>
-						<p>Student email</p>
-					</form>
-				</div>
 
 
 				<div class="sidebar">
@@ -42,25 +47,30 @@
             
             <div class="Edit_Form">
                 <h1> Edit your profile </h1>
-                <form>
-                    <input type="name" class="input-box" placeholder="Edit your Full Name">
-                    <input type="email" class="input-box" placeholder="Edit your Email">  
-                    <input type="date" class="input-box" placeholder="Date of birth">
-                    <input type="password" class="input-box" placeholder="Create New Password"> 
-                    <input type="password" class="input-box" placeholder="Confirm New Password">
+                <form method = "post" action="editsuccess.php">
+					<input type="hidden" name = "userNum" value = "<?php echo $result['user_num']?>">
+					<label for="fullname">Full name: </label>
+                    <input type="name" class="input-box" value="<?php echo ''.$result['fullname']?> " name = "fullname" id="fullname">
+					<label for="email">Email: </label>
+                    <input type="email" class="input-box" value="<?php echo ''.$result['email']?> " name = "email" id="email">  
+					<label for="email">Date of Birth: </label>
+                    <input type="date" class="input-box" value="<?php echo ''.$result['dob']?> " name = "dob" id="dob">
+					<br>
+					<p>Security Questions
+						<br>
+						<label for="security1">What is your hobby? : </label>
+                        <input type="question" class="input-box" value="<?php echo ''.$result['security_question1']?> " name = "security1" id="security1">
+						<label for="security2">What is the name of your favourite professor? : </label>
+                        <input type="question" class="input-box" value="<?php echo ''.$result['security_question2']?>" name = "security2" id="security2">
+                    </p>
                     <p>Add another profile picture below: <input class="file-upload-input" type="file" onchange="readURL(this)" accept="Image/*"></p>
-                    <p><span><input type="checkbox"></span> I agree to the terms and coditions</p>
-                    <button type="button"class="Save_btn">Save</button>
+
+                    <button type="submit"class="Save_btn" name = "submit">Save</button>
                 </form>
             </div>
 
-            <div class="footer">
-                <p>Viktoryia Hrechka</p>
-                <p><a href = "contacts.html"> viktoryia.hrechka@knf.stud.vu.lt</a></p>
-                <p>Vilnius University, Kaunas Faculty, ISCSen0</p>
-                <p>2021-2022</p>
-            
-            </div>
-            
-        </body>
-        </html>
+<?php
+				}
+			}
+		}
+ include_once "includes/footer.php"?>

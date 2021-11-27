@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <?php if(!isset($_SESSION['username'])){?>
+    <?php if(!isset($_SESSION['id'])){?>
     <h2>Login</h2>
     <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
         
@@ -13,7 +13,7 @@
 
     </form>
     <?php }else{?>
-    <a href="profile.php">
+    <a href="profile.php?id=<?php echo $_SESSION['id']?>">
         <h2>Profile</h2>
             <div class="image">
                 <img src="" alt="Profile picture">

@@ -25,7 +25,7 @@
                     $security2 = strip_tags($_POST['security2']);
                     $dob = $_POST['dob'];
                     $userId = $userNew->getUserId($username); //get the user id from the user_login table
-
+                    
                     $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2); //insert user in user_info table
                     $_SESSION['fullname'] = $fullname;
                     header("Location: welcome.php");
