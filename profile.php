@@ -1,53 +1,38 @@
 <?php 
-	    $title = "Your Profile";
+	    $title = "Index";
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
 	
 ?>	
 
 			
-		<div class="site_content">
-			
-			<div class="sidebar_container">
-
-				<div class="sidebar">
-					<a href="profile.php">
-						<h2>Profile</h2>
-							<div class="image">
-								<img src="" alt="Profile picture">
-							</div>
-							<p>Student name</p>
-					</a>
-				</div>
-
-				<div class="sidebar">
-					<h2>Updates</h2>
-					<span>16.10.2021</span>
-					<p>We lauched a new course for Spanish </p>
-					<a href="#">read more</a>
-				</div>
-
-				<div class="sidebar">
-					<h2>Future courses</h2>
-					<ul>
-						<li>Spanish course A1-B1</li>
-						<li>Spanish course B1-C1</li>
-					</ul>
-				</div>
-
-			</div>
             <div class="information">
                 <hr>	
                 <div class="image">
-                    <img src="assets/img/download (1).jpg" alt="Profile picture">
+                    <img src="assets/img/2688063.png" alt="Profile picture">
                 </div>
-                <h2> Student name</h2>
-                <p>Student Email</p>
-                <p>Date of birth</p>
-                <p>favourite hobby</p>
-                <p>You have 'number' Downloads as shown below:</p>
-                <input type="button" class="btn" value="Edit" />
-                <input type="button" class="btn" value="Delete" /> 
+
+                <div class="profile_form">
+                <h1> Profile Information </h1>
+                
+                    <input type="name" class="input-box" placeholder="Student name">
+                    <input type="email" class="input-box" placeholder="Student Email">  
+                    <input type="name" class="input-box" placeholder="favourite hobby">  
+                    <input type="number" class="input-box" placeholder="number of Downloads:"> 
+                    
+                   
+                    <input type="button" class="sign_btn" value="Edit" />
+                    <input type="button" class="sign_btn" value="Delete" /> 
+
+                   
+                
+            </div>
+
+
+
+
+               
+               
         </div>
         <p></p>
         <p></p>
@@ -57,4 +42,12 @@
         <p></p>
         <p></p>
 
-<?php include_once "includes/footer.php";?>
+            
+              <?php 
+		         require_once "includes/footer.php";
+              ?>	
+            
+           
+            
+        </body>
+        </html>

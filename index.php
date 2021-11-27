@@ -38,68 +38,7 @@
 			</div>
 			<!-- Gallery section starts  -->
 
-<section class="facility" id="facility">
 
-	<div class="container">
-	
-	<h1 class="heading"><span>'</span> Gallery <span>'</span></h1>
-	
-	<div class="box-container">
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/download (1).jpg" title="Our beloved students working together with a beautiful smile">
-				<img src="assets/img/download (1).jpg" alt="">
-			</a>
-		</div>
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/download (2).jpg" title="Grade 10 students">
-				<img src="assets/img/download (2).jpg" alt="">
-			</a>
-		</div>
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/download (3).jpg" title="Our classes">
-				<img src="assets/img/download (3).jpg" alt="">
-			</a>
-		</div>
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/download (5).jpg" title="Grade 8 students while having an exam">
-				<img src="assets/img/download (5).jpg" alt="">
-			</a>
-		</div>
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/download.jpg" title="Our Grade 12 students with their class teacher">
-				<img src="assets/img/download.jpg" alt="">
-			</a>
-		</div>
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/images (1).jpg" title="Math class">
-				<img src="assets/img/images (1).jpg" alt="">
-			</a>
-		</div>
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/images.jpg" title="Our students having some teamwork">
-				<img src="assets/img/images.jpg" alt="">
-			</a>
-		</div>
-	
-		<div class="box" data-aos="zoom-in">
-			<a href="assets/img/images (2).jpg" title="Wearing masks nowadays is important">
-				<img src="assets/img/images (2).jpg" alt="">
-			</a>
-		</div>
-	
-	
-	</div>
-	
-	</div>
-	
-	</section>
 	
 	<!-- Gallery section ends -->
 			<div class="posts">

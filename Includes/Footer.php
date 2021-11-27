@@ -1,11 +1,18 @@
 
 <div class="footer">
-		<p>Viktoryia Hrechka</p>
-		<p><a href = "contacts.html"> viktoryia.hrechka@knf.stud.vu.lt</a></p>
-		<p>Vilnius University, Kaunas Faculty, ISCSen0</p>
-		<p>2021-2022</p>
-	
-	</div>
+           
+			
+		   <p>Website created by Team 4 for practical work 2 of WWW Development Technologies</p>
+		   <p><a href = "contacts.html"> group4-www@onionmail.org</a></p>
+		   <p>Vilnius University, Kaunas Faculty, ISCSen0, 2021-2022</p>
+   
+			   <i class="fa fa-facebook"></i> 
+			   <i class="fa fa-instagram"></i>
+			   <i class="fa fa-twitter"></i>
+			   <i class="fa fa-linkedin"></i>
+		   
+		   
+	   </div>
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

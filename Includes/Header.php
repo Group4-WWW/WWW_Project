@@ -9,6 +9,7 @@
 	<meta name="keywords" content="courses,knowledge, online, education" />
 	
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -30,6 +31,7 @@
 					<li><a href="show.php">Language courses</a></li>
 					<li><a href="information.php">Information</a></li>
 					<li><a href="contacts.php">Contacts</a></li>
+					
 				</ul>
 
 			</div>
