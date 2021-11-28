@@ -9,6 +9,7 @@
 	<meta name="keywords" content="courses,knowledge, online, education" />
 	
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="print.css" media="print">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>

@@ -45,8 +45,8 @@
             <a href="edit.php?id=<?php echo $id?>"><button class="sign_btn">Edit</button></a>
             <a onclick= "return confirm('Are you sure?')" href="delete.php?id=<?php echo $id?>"><button class="sign_btn">Remove Account</button></a>
             <?php if($result['privilege'] == 1){?>
-            <input type="button" class="sign_btn" value="Delete" /> 
-            <input type="button" class="sign_btn" value="Delete" /> 
+            <a href="viewAllUsers.php"><button class="sign_btn">View All Users</button></a>
+            <a href="viewAllComments.php"><button class="sign_btn">View All Comments</button></a>
             <?php }?>
 
             

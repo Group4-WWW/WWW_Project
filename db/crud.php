@@ -79,5 +79,29 @@
                 return false;
             }
         }
+        public function getUsers(){
+            try {
+                $sql = "SELECT * FROM `user_info` ui inner join user_login  ul on ui.user_id = ul.user_id";
+                $result = $this->db->query($sql);
+                return $result;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+
+        }
+        public function getAllComments(){
+            try {
+                $sql = "SELECT * FROM client_requests";
+                $result = $this->db->query($sql);
+                return $result;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+
+        }
     }
 ?>
