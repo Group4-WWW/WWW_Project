@@ -12,13 +12,14 @@
         </div>
 
     </form>
-    <?php }else{?>
+    <?php }else{ $username = $userNew->getUserNameById($_SESSION['id']);$result = $userNew->getUserByUserName($username['username']);?>
+        
     <a href="profile.php?id=<?php echo $_SESSION['id']?>">
         <h2>Profile</h2>
             <div class="image">
-                <img src="" alt="Profile picture">
+                <img src="<?php if(empty($result['avatar'])){echo "assets/img/2688063.png";}else{ echo $result['avatar'];}?>">
             </div>
-            <p>Student name</p>
+            <p><?php echo $result['fullname']?></p>
             <a href="logout.php">Logout</a>
     </a>
     <?php }?>

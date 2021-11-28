@@ -11,24 +11,68 @@
             $confirmPass = $_POST['confirmPass'];
                                                         //check if the passwords match
             if(!($password == $confirmPass)){
-                $flag = true;                           //if they don't raise a flag
+                $flag = true;                           //if they don't, raise a flag
             }
-            else{                                       //if passwords match try to insert user in the user_login table
+            else{       
+                              //if passwords match try to insert user in the user_login table
                 $result = $userNew->insertUser($username,$password);
                 if(!$result){                           //if the return is false, then there's already a user
                     echo "<p >User by this name already exists! Please try a different username</p>";
                 }
-                else{                                   //else insert the user in the user_info table
+                else{
                     $fullname = strip_tags($_POST['fullname']);
                     $email = strip_tags($_POST['email']);
                     $security1 = strip_tags($_POST['security1']);
                     $security2 = strip_tags($_POST['security2']);
                     $dob = $_POST['dob'];
-                    $userId = $userNew->getUserId($username); //get the user id from the user_login table
-                    
-                    $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2); //insert user in user_info table
-                    $_SESSION['fullname'] = $fullname;
-                    header("Location: welcome.php");
+                    $userId = $userNew->getUserId($username);
+                    if(!is_uploaded_file($_FILES['avatar']['tmp_name'])){
+                        $destination = "assests/img/2688063.png";
+
+                        $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2,$destination); //insert user in user_info table
+                        $_SESSION['fullname'] = $fullname;
+                        header("Location: welcome.php");
+                    }
+                    else{
+                        $imagefile = true;
+                        $origFile = $_FILES["avatar"]["tmp_name"];
+                        $targetDir = 'uploads/';
+                        $ext = strtolower(pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION));
+       
+                        if(@getimagesize($_FILES["avatar"]["tmp_name"]) === true){
+                            $input = file_get_contents($origFile);
+
+                            if(preg_match('/(<\?php\s)/',$input)){
+                                echo "<p >The file is not an image!</p>";
+                                $imagefile = false;
+                            }
+                            else{
+                                $input = str_replace(chr(0),'',$input); //null byte insertion protection
+                            }
+                        }
+                       if($_FILES["avatar"]["size"] > 500000){
+                            echo "<p >File is too large!</p>";
+                            $imagefile = false;
+                        }
+                        if($ext != "jpg" && $ext != "jpeg" && $ext != "png"){
+                            echo "<p >Only jpg,jpeg and png files are accepted!</p>";
+                            $imagefile = false;
+                        }
+    
+                        if(!$imagefile){
+                            echo "<p> Problem uploading avatar! </p>";
+                            $delete = $userNew->deleteByUserId($userId['user_id']);
+                        }
+                        else{
+                            $destination = $targetDir.$userId['user_id'].".$ext";
+                            move_uploaded_file($origFile,$destination);
+
+                            $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2,$destination); //insert user in user_info table
+                            $_SESSION['fullname'] = $fullname;
+                            header("Location: welcome.php");
+
+                        }
+                    }
                 }
             }
         }
@@ -58,7 +102,7 @@
             
             <div class="sign_up_form">
                 <h1> Sign up now </h1>
-                <form method="post" action= "<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="post">
+                <form method="post" action= "<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="post" enctype="multipart/form-data">
                     <input required type="text" class="input-box" placeholder="Full Name" name="fullname" value="<?php if($_SERVER['REQUEST_METHOD']== 'POST') echo strip_tags($_POST['fullname']);?>">
                     <input required type="email" class="input-box" placeholder="Email" name="email" value="<?php if($_SERVER['REQUEST_METHOD']== 'POST') echo strip_tags($_POST['email']);?>">  
                     <input required type="date" class="input-box" placeholder="Date of birth" name = "dob" value="<?php if($_SERVER['REQUEST_METHOD']== 'POST') echo $_POST['dob'];?>">
@@ -74,7 +118,7 @@
                         <input required type="password" class="input-box" placeholder="Confirm Password" name="confirmPass">
                         <?php if($flag) echo "Please type in the same password"                         //if flag is raised prompt the user that passwords didn't match?> 
                     </p>
-                    <p>Add a profile picture below: <input class="file-upload-input" type="file" onchange="readURL(this)" accept="Image/*"></p>
+                    <p>Add a profile picture below: <input type="file" accept="Image/*" class="file-upload-input"  name="avatar" id="avatar"></p>
                     <p><span><input required type="checkbox"></span> I agree to the terms and conditions</p>
                     <button type="submit"class="sign_btn" name="signup">Sign up</button>
                 </form>

@@ -24,7 +24,7 @@
     <div class="information">
         <hr>	
         <div class="image">
-            <img src="assets/img/2688063.png" alt="Profile picture">
+            <img src="<?php if(empty($result['avatar'])){echo "assets/img/2688063.png";}else{ echo $result['avatar'];}?>">
         </div>
 
         <div class="profile_form">

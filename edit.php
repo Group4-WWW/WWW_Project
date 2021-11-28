@@ -47,7 +47,7 @@
             
             <div class="Edit_Form">
                 <h1> Edit your profile </h1>
-                <form method = "post" action="editsuccess.php">
+                <form method = "post" action="editsuccess.php" enctype="multipart/form-data">
 					<input type="hidden" name = "userNum" value = "<?php echo $result['user_num']?>">
 					<label for="fullname">Full name: </label>
                     <input type="name" class="input-box" value="<?php echo ''.$result['fullname']?> " name = "fullname" id="fullname">
@@ -63,7 +63,7 @@
 						<label for="security2">What is the name of your favourite professor? : </label>
                         <input type="question" class="input-box" value="<?php echo ''.$result['security_question2']?>" name = "security2" id="security2">
                     </p>
-                    <p>Add another profile picture below: <input class="file-upload-input" type="file" onchange="readURL(this)" accept="Image/*"></p>
+                    <p>Add another profile picture below: <input type="file" accept="Image/*" class="file-upload-input"  name="avatar" id="avatar"></p>
 
                     <button type="submit"class="Save_btn" name = "submit">Save</button>
                 </form>

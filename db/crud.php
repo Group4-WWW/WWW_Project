@@ -24,9 +24,9 @@
                 return false;
             }
         }
-        public function insertUserInfo($fullname, $email, $userId, $dob, $security1, $security2 ){
+        public function insertUserInfo($fullname, $email, $userId, $dob, $security1, $security2,$avatar){
             try {
-                $sql = "INSERT INTO user_info(fullname,email,user_Id,security_question1,security_question2,dob) VALUE(:fullname,:email,:userId,:security1,:security2,:dob)";
+                $sql = "INSERT INTO user_info(fullname,email,user_Id,security_question1,security_question2,dob,avatar) VALUE(:fullname,:email,:userId,:security1,:security2,:dob,:avatar)";
                 $stmnt = $this->db->prepare($sql);
                 $stmnt->bindparam(':fullname',$fullname);
                 $stmnt->bindparam(':email',$email);
@@ -34,6 +34,7 @@
                 $stmnt->bindparam(':dob',$dob);
                 $stmnt->bindparam(':security1',$security1);
                 $stmnt->bindparam(':security2',$security2);
+                $stmnt->bindparam(':avatar',$avatar);
                 $stmnt->execute();
 
                 return true;
@@ -55,6 +56,27 @@
                 $stmnt->bindparam(':dob',$dob);
                 $stmnt->bindparam(':security1',$security1);
                 $stmnt->bindparam(':security2',$security2);
+                $stmnt->execute();
+
+                return true;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                
+                return false;
+            }
+        }
+        public function editUserInfoAvatar($fullname, $email, $dob, $security1, $security2, $userId,$destination){
+            try {
+                $sql = "UPDATE `user_info` SET `fullname`=:fullname,`email`=:email,`security_question1`=:security1,`security_question2`=:security2,`dob`=:dob,`avatar`=:destination WHERE user_id = :userId";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam(':userId',$userId);
+                $stmnt->bindparam(':fullname',$fullname);
+                $stmnt->bindparam(':email',$email);
+                $stmnt->bindparam(':dob',$dob);
+                $stmnt->bindparam(':security1',$security1);
+                $stmnt->bindparam(':security2',$security2);
+                $stmnt->bindparam(':destination',$destination);
                 $stmnt->execute();
 
                 return true;
