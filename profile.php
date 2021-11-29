@@ -40,7 +40,7 @@
                 <br>
                 Who's your favourite teacher? : <?php echo $result['security_question2']?>        
             </p>
-            <p class="input-box" placeholder="number of Downloads:">Number of downloads from our website: </p>
+            <p class="input-box" placeholder="Number of Downloads:">Number of downloads from our website: <?php echo $result['download_count']?></p>
             
             <a href="edit.php?id=<?php echo $id?>"><button class="sign_btn">Edit</button></a>
             <a onclick= "return confirm('Are you sure?')" href="delete.php?id=<?php echo $id?>"><button class="sign_btn">Remove Account</button></a>

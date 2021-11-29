@@ -28,6 +28,7 @@
                 <th>Email</th>
                 <th>Date of Birth</th>
                 <th>User Name</th>
+                <th>Downloads</th>
             </tr>
             <?php while($r = $result->fetch(PDO::FETCH_ASSOC)){?>
             <tr>
@@ -36,6 +37,7 @@
                 <td><?php echo $r['email']?></td>
                 <td><?php echo $r['dob']?></td>
                 <td><?php echo $r['username']?></td>
+                <td><?php echo $r['download_count']?></td>
             </tr>
             <?php }?>
         </table>

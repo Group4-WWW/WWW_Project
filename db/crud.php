@@ -27,7 +27,8 @@
         }
         public function insertUserInfo($fullname, $email, $userId, $dob, $security1, $security2,$avatar){
             try {
-                $sql = "INSERT INTO user_info(fullname,email,user_Id,security_question1,security_question2,dob,avatar) VALUE(:fullname,:email,:userId,:security1,:security2,:dob,:avatar)";
+                $downloads = 0;
+                $sql = "INSERT INTO user_info(fullname,email,user_Id,security_question1,security_question2,dob,avatar,download_count) VALUE(:fullname,:email,:userId,:security1,:security2,:dob,:avatar,:downloads)";
                 $stmnt = $this->db->prepare($sql);
                 $stmnt->bindparam(':fullname',$fullname);
                 $stmnt->bindparam(':email',$email);
@@ -36,6 +37,7 @@
                 $stmnt->bindparam(':security1',$security1);
                 $stmnt->bindparam(':security2',$security2);
                 $stmnt->bindparam(':avatar',$avatar);
+                $stmnt->bindparam(':downloads',$downloads);
                 $stmnt->execute();
 
                 return true;
@@ -125,6 +127,20 @@
                 return false;
             }
 
+        }
+        public function incrementDownloadsCount($userId){
+            try{
+                $sql = "UPDATE user_info SET `download_count`= `download_count`+1 WHERE user_id = :userId";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam('userId',$userId);
+                $stmnt->execute();
+
+                return true;
+            }
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
         }
     }
 ?>

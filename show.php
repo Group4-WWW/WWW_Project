@@ -47,6 +47,8 @@
 				 }
 				 else{
 					echo "<a href='downloads/Complete English Course A1-A2.pdf' download=''><img src='assets\img\button.png' alt= 'Complete English Course A1-A2' height='70px'></a>";
+					$userId = $_SESSION['id'];
+					$incrementDownloads = $crud->incrementDownloadsCount($userId);
 				}?>
 				<br>
 				<hr>
@@ -61,6 +63,8 @@
 					}
 					else{
 						echo "<a href='downloads/Complete English Course B2- C1.pdf' download=''><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
+						$userId = $_SESSION['id'];
+						$incrementDownloads = $crud->incrementDownloadsCount($userId);
 					}?>
 					<br>
 					<hr>
@@ -76,6 +80,8 @@
 					}
 					else{
 						echo "<a href='downloads/Learn German Language A1-A2 .pdf' download=''><img src='assets\img\button.png' alt= 'Learn German Language A1-A2' height='70px'></a>";
+						$userId = $_SESSION['id'];
+						$incrementDownloads = $crud->incrementDownloadsCount($userId);
 					}?>
 					<br>
 					<hr>
@@ -91,6 +97,8 @@
 						}
 						else{
 							echo "<a href='downloads/Learn German Language B2- C1.pdf' download=''><img src='assets\img\button.png' alt= 'Learn German Language B2- C1.pdf' height='70px'></a>";
+							$userId = $_SESSION['id'];
+							$incrementDownloads = $crud->incrementDownloadsCount($userId);
 						}?>
 						<br>
 						<hr>

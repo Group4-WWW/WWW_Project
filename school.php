@@ -46,6 +46,8 @@
 				 }
 				 else{
 					echo "<a href='downloads/Graphic Design for beginners.pdf' download=''><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
+					$userId = $_SESSION['id'];
+					$incrementDownloads = $crud->incrementDownloadsCount($userId);
 				}?>
 				<br>
 				<hr>
@@ -61,6 +63,8 @@
 				 }
 				 else{
 					echo "<a href='downloads/Design for Pro.pdf' download=''><img src='assets\img\button.png' alt= 'Design for Pro' height='70px'></a>";
+					$userId = $_SESSION['id'];
+					$incrementDownloads = $crud->incrementDownloadsCount($userId);
 				}?>
 				<br>
 				<hr>
