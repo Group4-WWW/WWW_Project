@@ -7,10 +7,10 @@
     $weakPass = false;
     $notComplete = false;
 
-    if(!isset($_SESSION['username'])){
+    if(!isset($_SESSION['username'])){      //if the user is not coming from forgotPassword.php ridirect
         header("location: index.php");
     }
-    else if(isset($_SESSION['id'])){
+    else if(isset($_SESSION['id'])){    //if the user is someone who is logged in and came here by mistake, ridirect
         header("location: index.php");
     }
     else{

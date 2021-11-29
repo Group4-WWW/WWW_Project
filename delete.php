@@ -2,7 +2,7 @@
     require_once "includes/header.php";
     require_once "db/db_config.php";
 
-    if(!isset($_SESSION['id'])){
+    if(!isset($_SESSION['id'])){    //if session is not set redirect. is safe from no ridirect session hijack attacks
         header('location: index.php');
     }
     else{

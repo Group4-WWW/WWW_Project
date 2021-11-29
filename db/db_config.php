@@ -14,7 +14,7 @@
     } catch (PDOException $e) {
         throw new PDOException($e->getMessage());
     }
-
+                            //make objects of the two classes for further use
     require_once 'crud.php';
     require_once 'user.php';
 

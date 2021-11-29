@@ -24,7 +24,6 @@
                 }
             }
 
-
 ?>	
  <div class="password_form">
     <form method="post" action= "<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="post">

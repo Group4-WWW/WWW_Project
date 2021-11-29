@@ -21,9 +21,12 @@
 <?php
         $flag = false;
         $title = "Welcome!";
+
         require_once "includes/header.php";
         require_once "db/db_config.php";
+
         if(isset($_SESSION['fullname'])){
+
             echo "<h1 class = 'mycss_2'> You have been successfully registered as ".$_SESSION['fullname'].", Please login using your credentials. Thank you for registering!";
             session_destroy();?>
             
@@ -31,7 +34,7 @@
                 <div class="sidebar_container">
                     <div class="sidebar">
                         <h2>Login</h2>
-                        <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
+                        <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST"> <! --- go to the same page on submission ---> 
                         
                         <input type="text"  placeholder="username" name="username" value="<?php if($_SERVER['REQUEST_METHOD']== 'POST') echo strip_tags($_POST['username']);?>"/>
                         <input type="password" name="password" placeholder="password" />

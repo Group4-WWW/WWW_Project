@@ -36,8 +36,9 @@
                     $security2 = strip_tags($_POST['security2']);
                     $dob = $_POST['dob'];
                     $userId = $userNew->getUserId($username);
-                    if(!is_uploaded_file($_FILES['avatar']['tmp_name'])){
-                        $destination = "assets/img/2688063.png";
+
+                    if(!is_uploaded_file($_FILES['avatar']['tmp_name'])){       //if avatar is not uploaded set a default one
+                        $destination = "assets/img/2688063.png";           
 
                         $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2,$destination); //insert user in user_info table
                         $_SESSION['fullname'] = $fullname;
@@ -49,10 +50,10 @@
                         $targetDir = 'uploads/';
                         $ext = strtolower(pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION));
        
-                        if(@getimagesize($_FILES["avatar"]["tmp_name"]) === true){
-                            $input = file_get_contents($origFile);
+                        if(@getimagesize($_FILES["avatar"]["tmp_name"]) === true){      //check if the file has malicious codes and other regular stuff like
+                            $input = file_get_contents($origFile);                      // //size and extension
 
-                            if(preg_match('/(<\?php\s)/',$input)){
+                            if(preg_match('/(<\?php\s)/',$input)){                      //is safe from file upload vulnerability
                                 echo "<p >The file is not an image!</p>";
                                 $imagefile = false;
                             }
@@ -74,7 +75,7 @@
                             $delete = $userNew->deleteByUserId($userId['user_id']);
                         }
                         else{
-                            $destination = $targetDir.$userId['user_id'].".$ext";
+                            $destination = $targetDir.$userId['user_id'].".$ext";   //save only in permitted formats
                             move_uploaded_file($origFile,$destination);
 
                             $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2,$destination); //insert user in user_info table

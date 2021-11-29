@@ -3,6 +3,9 @@
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
 		require_once "includes/auth.php";
+		if(isset($_SESSION['id'])){
+			
+		}
 ?>	
 
 			
@@ -46,9 +49,7 @@
 					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Complete English Course A1-A2' height='70px'></a>";
 				 }
 				 else{
-					echo "<a href='downloads/Complete English Course A1-A2.pdf' download=''><img src='assets\img\button.png' alt= 'Complete English Course A1-A2' height='70px'></a>";
-					$userId = $_SESSION['id'];
-					$incrementDownloads = $crud->incrementDownloadsCount($userId);
+					echo "<a onclick='increment()' href='downloads/Complete English Course A1-A2.pdf' download=''><img src='assets\img\button.png' alt= 'Complete English Course A1-A2' height='70px'></a>";
 				}?>
 				<br>
 				<hr>
@@ -62,9 +63,7 @@
 						echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
 					}
 					else{
-						echo "<a href='downloads/Complete English Course B2- C1.pdf' download=''><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
-						$userId = $_SESSION['id'];
-						$incrementDownloads = $crud->incrementDownloadsCount($userId);
+						echo "<a href='downloads/Complete English Course B2- C1.pdf?id=1' download=''><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
 					}?>
 					<br>
 					<hr>
@@ -79,9 +78,7 @@
 						echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'German A1-A2' height='70px'></a>";
 					}
 					else{
-						echo "<a href='downloads/Learn German Language A1-A2 .pdf' download=''><img src='assets\img\button.png' alt= 'Learn German Language A1-A2' height='70px'></a>";
-						$userId = $_SESSION['id'];
-						$incrementDownloads = $crud->incrementDownloadsCount($userId);
+						echo "<a onclick='increment()' href='downloads/Learn German Language A1-A2 .pdf' download=''><img src='assets\img\button.png' alt= 'Learn German Language A1-A2' height='70px'></a>";
 					}?>
 					<br>
 					<hr>
@@ -96,20 +93,27 @@
 							echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'German A1-A2' height='70px'></a>";
 						}
 						else{
-							echo "<a href='downloads/Learn German Language B2- C1.pdf' download=''><img src='assets\img\button.png' alt= 'Learn German Language B2- C1.pdf' height='70px'></a>";
-							$userId = $_SESSION['id'];
-							$incrementDownloads = $crud->incrementDownloadsCount($userId);
+							echo "<a onclick='increment()' href='downloads/Learn German Language B2- C1.pdf' download=''><img src='assets\img\button.png' alt= 'Learn German Language B2- C1.pdf' height='70px'></a>";
 						}?>
 						<br>
 						<hr>
 						<br>
 			</div>
 		</div>
+
 		<script>
 			function pleaseLogin(){
 				alert("Please Login to download!");
 			}
+			function increment() {
+				$.ajax({
+					type: "POST",
+					url: 'increment.php',
+					data:{id:<?php echo $_SESSION['id']?>},
+					success:function(data) {
+					}
+      			});
+ 			}
 		</script>
-
 
 <?php include_once "includes/footer.php";?>

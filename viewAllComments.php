@@ -2,13 +2,13 @@
     $title = "View All Comments";
     require_once "includes/header.php";
     require_once "db/db_config.php";
-    if(!isset($_SESSION['id'])){
+    if(!isset($_SESSION['id'])){    //if the user is not a valid session holder, ridirect
         header("location: index.php");
     }
     else{
         $id = $_SESSION['id'];
         $userPrivilege = $userNew->getUserNameById($id);
-        if(!($userPrivilege['privilege'] == 1)){
+        if(!($userPrivilege['privilege'] == 1)){        //only if the user is an admin, display the page
             echo "<h1 class=''>Error!</h1>";
         }
         else{
@@ -34,7 +34,7 @@
                 <td><?php echo $r['email']?></td>
                 <td><?php 
                     $file = "messages/".$r['fullname'].$r['time'].'.txt';
-                    $readFile = fopen($file, "r") or die("Unable to open file!");
+                    $readFile = fopen($file, "r") or die("Unable to open file!");   //read the previously saved txt file
                     echo fread($readFile,filesize($file));
                     fclose($readFile);
                 ?></td>

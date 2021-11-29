@@ -2,11 +2,11 @@
 	    $title = "Edit Profile";
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
-		if(!isset($_SESSION['id'])){
+		if(!isset($_SESSION['id'])){		//is safe from no ridirect session hijack attacks, no information will be showed upon no ridirect
 			header('location: index.php');
 		}
 		else{
-			if(!isset($_GET['id'])){
+			if(!isset($_GET['id'])){		//is safe from sql injection because of bind param with PDO
 				echo "<h1 class=''>Error!</h1>";
 			}
 			else{

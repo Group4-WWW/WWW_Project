@@ -31,7 +31,7 @@
         $time = time();
         $file = "messages/".$fullname.$time.'.txt';
         $writeFile = fopen($file, "w") or die("Unable to open file!");
-        fwrite($writeFile, $message);
+        fwrite($writeFile, $message);   //writes the message to txt file for reading it later
         fclose($writeFile);
 
          $isSuccess = $crud->insertClientRequest($fullname, $email, $file, $time);
@@ -74,6 +74,7 @@
 					</form>
 				</div>
 
+                <?php require_once "includes/sidebar.php";?>
 				
 				</div>
            
@@ -104,6 +105,6 @@
  </div>
 
 
-                <?php 
-		           require_once "includes/footer.php";
-                ?>
+<?php 
+    require_once "includes/footer.php";
+?>

@@ -49,37 +49,37 @@
 					</tr>
 					<tr>
 						<td class="center"><img src="assets/img/design.jpg"></td>
-						<td> <a href="show.html">Graphic Design for beginners</a></td>
+						<td> <a href="school.php">Graphic Design for beginners</a></td>
 						<td class="center"> up  to 12 months </td>
 						<td class="center rating">18-55</td>
 					</tr>
 					<tr>
 						<td class="center"><img src="assets/img/design.jpg"></td>
-						<td> <a href="#"> Graphic Design for Pro</a> </td>
+						<td> <a href="school.php"> Graphic Design for Pro</a> </td>
 						<td class="center">up to 6 months</td>
 						<td class="rating center">18-55</td>
 					</tr>
 					<tr>
 						<td class="center"><img src="assets/img/english.png"></td>
-						<td> <a href="#">English A1-B1</a></td>
+						<td> <a href="show.php">English A1-B1</a></td>
 						<td class="center"> up to 12 months</td>
 						<td class="rating center">5-55</td>
 					</tr>
 					<tr>
 						<td class="center"><img src="assets/img/english.png"></td>
-						<td> <a href="#">English B2-C1</a></td>
+						<td> <a href="show.php">English B2-C1</a></td>
 						<td class="center"> up to 12 months</td>
 						<td class="rating center">7-55</td>
 					</tr>
 					<tr>
 						<td class="center"><img src="assets/img/de.png"></td>
-						<td> <a href="#">German A1-B1</a></td>
+						<td> <a href="show.php">German A1-B1</a></td>
 						<td class="center"> up to 12 months</td>
 						<td class="rating center">7-55</td>
 					</tr>
 					<tr>
 						<td class="center"><img src="assets/img/de.png"></td>
-						<td> <a href="#">German B2-C1</a></td>
+						<td> <a href="show.php">German B2-C1</a></td>
 						<td class="center"> up to 12 months</td>
 						<td class="rating center">7-55</td>
 					</tr>

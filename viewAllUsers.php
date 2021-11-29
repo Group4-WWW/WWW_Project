@@ -9,7 +9,7 @@
     else{
         $id = $_SESSION['id'];
         $userPrivilege = $userNew->getUserNameById($id);
-        if(!($userPrivilege['privilege'] == 1)){
+        if(!($userPrivilege['privilege'] == 1)){    //only if the user is an admin, give access
             echo "<h1 class=''>Error!</h1>";
         }
         else{

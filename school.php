@@ -45,9 +45,8 @@
 					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
 				 }
 				 else{
-					echo "<a href='downloads/Graphic Design for beginners.pdf' download=''><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
-					$userId = $_SESSION['id'];
-					$incrementDownloads = $crud->incrementDownloadsCount($userId);
+					echo "<a onclick ='increment()' href='downloads/Graphic Design for beginners.pdf' download=''><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
+
 				}?>
 				<br>
 				<hr>
@@ -62,18 +61,26 @@
 					echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'Design for beginners' height='70px'></a>";
 				 }
 				 else{
-					echo "<a href='downloads/Design for Pro.pdf' download=''><img src='assets\img\button.png' alt= 'Design for Pro' height='70px'></a>";
-					$userId = $_SESSION['id'];
-					$incrementDownloads = $crud->incrementDownloadsCount($userId);
+					echo "<a onclick='increment()' href='downloads/Design for Pro.pdf' download=''><img src='assets\img\button.png' alt= 'Design for Pro' height='70px'></a>";
+
 				}?>
 				<br>
 				<hr>
 				<br>
 			</div>
 			<script>
-					function pleaseLogin(){
-						alert("Please Login to download!");
-					}
+				function pleaseLogin(){
+					alert("Please Login to download!");
+				}
+				function increment() {
+					$.ajax({
+						type: "POST",
+						url: 'increment.php',
+						data:{id:<?php echo $_SESSION['id']?>},
+						success:function(data) {
+						}
+					});
+				}
 			</script>
 
 		</div>
