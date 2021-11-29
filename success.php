@@ -51,11 +51,11 @@
 			
 			<div class="sidebar_container">
 				
-				<div class="sidebar">
+            <div class="sidebar">
 					<h2>Updates</h2>
                     <span>16.10.2021</span>
 					<p>We lauched a new course for Spanish </p>
-					<a href="information.php">read more</a>
+					<a href="#">read more</a>
 				</div>
 
 				<div class="sidebar">
@@ -66,23 +66,42 @@
 					</ul>
 				</div>
 
+                <div class="sidebar">
+					<h2>Search</h2>
+					<form method="post" action="#" id="search_form" >
+						<input type="search" name="search_field" placeholder="your request" />
+						<input type="submit" class="btn" value="find" />
+					</form>
+				</div>
+
 				
 				</div>
-                <div class="image_Success">
-                    <img src="assets/img/1965319.png" alt="Profile picture">
-                </div>
+           
 
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <div class="posts">
+					<hr>
+		            <h2>Payment and prices</h2>
+		            <div class="posts_content">
+		              <p>Our prices range from 6o euro till 100 euro per a month. <br>You can pay via your credit card by simply having a monthly subscription.</p>
+		            </div>
+		        </div>
+
+                <div class="posts">
+					<hr>
+					<h2> How we teach? </h2>
+					<div class="posts_content">
+						<p>You can choose to learn in small groups of under 7 people or take individual classes. <br>We use Whereby or Zoom for our virtual classrooms. <br>Our approach to teaching is to deliver value and easy learning. We love what we do!</p>
+		            </div>
+			    </div>
+
+                <div class="posts">
+					<hr>
+					<h2> We are always here for you!! </h2>
+					<div class="posts_content">
+						<p>Our Top-Notch services have been appreciated by many and we will strive to make you <br> one of them. <br>The method of learning is rapidly changing join Us to experience change Now!!</p>
+		            </div>
+			    </div>
+ </div>
 
 
                 <?php 

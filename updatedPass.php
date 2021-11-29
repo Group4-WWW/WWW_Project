@@ -1,3 +1,14 @@
+<style>
+.mycss_2{
+	color: green;
+   
+    padding: 10px;
+    margin-top: 5%;
+    text-align: center;
+    font-size: 50px;
+}
+</style>
+
 <?php 
     $title = "Password Updated";
     require_once "includes/header.php";
@@ -9,4 +20,18 @@
     else{
         header("location: index.php");
     }
+?>
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+<?php 
+	 require_once "includes/footer.php";
 ?>

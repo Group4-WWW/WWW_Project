@@ -93,6 +93,15 @@
 			
 			<div class="sidebar_container">
 
+
+            <div class="sidebar">
+					<h2>Search</h2>
+					<form method="post" action="#" id="search_form" >
+						<input type="search" name="search_field" placeholder="your request" />
+						<input type="submit" class="btn" value="find" />
+					</form>
+				</div>
+
 				<div class="sidebar">
 					<h2>Updates</h2>
 					<span>16.10.2021</span>
@@ -108,7 +117,17 @@
 					</ul>
 				</div>
 
+               
+
+                <div class="sidebar">
+					<h2>Updates</h2>
+					<span>16.10.2021</span>
+					<p>We are working on other Languages!! </p>
+					<a href="information.php">read more</a>
+				</div>
+
 			</div>
+            
             
             <div class="sign_up_form">
                 <h1> Sign up now </h1>
@@ -132,5 +151,6 @@
                     <p><span><input required type="checkbox"></span> I agree to the terms and conditions</p>
                     <button type="submit"class="sign_btn" name="signup">Sign up</button>
                 </form>
+            </div>
             </div>
 <?php include_once "includes/footer.php"?>

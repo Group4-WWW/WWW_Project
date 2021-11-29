@@ -68,6 +68,7 @@
                     <button type="submit"class="Save_btn" name = "submit">Save</button>
                 </form>
             </div>
+			</div>
 
 <?php
 				}

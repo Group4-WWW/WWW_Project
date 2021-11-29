@@ -43,6 +43,7 @@
 
         }
 ?>
+   <div class="password_form">
     <form method="post" action= "<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="post">
         <input required type="password" class="input-box" placeholder="Create New Password" name="password">
         <input required type="password" class="input-box" placeholder="Confirm Password" name="confirmPass">
@@ -52,4 +53,13 @@
               ?> 
         <button type="submit"class="sign_btn" name="updatePass">Update</button>
     </form>
+    </div>
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
 <?php } include_once "includes/footer.php";?>

@@ -26,11 +26,23 @@
 
 
 ?>	
+ <div class="password_form">
     <form method="post" action= "<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="post">
+        <p>Fill in your Username and Answer your Security Questions.</p>
         <input required type="text" class="input-box" placeholder="username" name="username" value="<?php if($_SERVER['REQUEST_METHOD']== 'POST') echo strip_tags($_POST['username']);?>">
         <input required type="text" class="input-box" placeholder="Security Question 1" name="security1"/>  
         <input required type="text" class="input-box" placeholder="Security Question 2" name = "security2"/>
         <?php if($flag) echo"<br/>Either the Username doesn't exist or the security questions don't match! Please try again!"?>
         <button type="submit"class="sign_btn" name="signup">Confirm</button>
     </form>
+    </div>
+    
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    
+    
 <?php } include_once "includes/footer.php";?>
