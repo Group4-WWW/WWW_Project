@@ -2,7 +2,7 @@
 	    $title = "Professional Courses";
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
-		require_once "includes/auth.php";
+		require_once "includes/auth.php";	//Ajax is implemented on this page
 ?>	
 
 			
