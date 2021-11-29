@@ -13,7 +13,7 @@
         <p><span><input type="checkbox" name="remember" value="1"></span> Remember me</p>
         <p><?php if($flag) echo "Username or password incorrect or you've made too many attempts! Please click Forgot Password"?></p>
         <div class="lables_passreg_text">
-            <span><a href="#">Forgot your password?</a></span> | <span><a href="signup.php">Sign up</a></span>
+            <span><a href="forgotPassword.php">Forgot your password?</a></span> | <span><a href="signup.php">Sign up</a></span>
         </div>
     </form>
     <?php }else{ $username = $userNew->getUserNameById($_SESSION['id']);$result = $userNew->getUserByUserName($username['username']);?>

@@ -197,5 +197,74 @@
                 return false;
             }
         }
+        public function validateUserSecurityQuestions($username,$security1,$security2){
+            try {
+                $result = $this->userExist($username);
+                if($result['num'] > 0){
+                    $result = $this->validateSecuityQuestions($security1,$security2);
+                    if(!$result){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+                else{
+                    return false;
+                }
+            }
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+                
+        }
+        function validateSecuityQuestions($security1,$security2){
+            try {
+                $sql = "SELECT*FROM user_info WHERE security_question1 = :security1 AND security_question2 = :security2";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam(':security1',$security1);
+                $stmnt->bindparam(':security2',$security2);
+                $stmnt->execute();
+
+                $result = $stmnt->fetch();
+                if(!empty($result)){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                
+            }
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+        public function updatePass($username,$password){
+            try {
+                $result = $this->userExist($username);
+                if($result['num'] > 0){
+                    $attemptsLeft = 5;
+                    $encryptedPass = md5($password.$username.$this->getSalt());
+                    $sql = "UPDATE `user_login` SET `password` = :encryptedPass, `attempts_left` = :attemptsLeft WHERE username = :username";
+                    $stmnt = $this->db->prepare($sql);
+                    $stmnt->bindparam(':username',$username);
+                    $stmnt->bindparam(':encryptedPass',$encryptedPass);
+                    $stmnt->bindparam(':attemptsLeft',$attemptsLeft);
+                    $stmnt->execute();
+
+                    return true;
+                }
+                else{
+                    return false;
+                }
+
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>

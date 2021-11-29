@@ -84,4 +84,5 @@
             else{
                 header("location: signup.php");
             }
+            include_once "includes/Footer.php";
         ?>
