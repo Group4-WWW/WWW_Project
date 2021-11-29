@@ -22,10 +22,14 @@
                 }
                 else{
                     $encryptedPass = md5($password.$username.$this->getSalt());
-                    $sql = "INSERT INTO user_login(username,password,privilege) VALUE(:username,:password,0)";
+                    $privilege = 0;
+                    $attemptsLeft = 5;
+                    $sql = "INSERT INTO user_login(username,password,privilege,attempts_left) VALUE(:username,:password,:privilege,:attemptsLeft)";
                     $stmnt = $this->db->prepare($sql);
                     $stmnt->bindparam(':username',$username);
                     $stmnt->bindparam(':password',$encryptedPass);
+                    $stmnt->bindparam(':privilege',$privilege);
+                    $stmnt->bindparam(':attemptsLeft',$attemptsLeft);
                     $stmnt->execute();
     
                     return true;
@@ -84,6 +88,40 @@
         }
         public function getUser($username, $password){
             try {
+                $result = $this->userExist($username);
+                if($result['num'] > 0){
+                    $result = $this->correctCredentials($username,$password);
+                    if(!$result){
+                        $result = $this->getUserAttemptsLeft($username);
+                        if($result['attempts_left'] > 0){
+                            $result = $this->updateUserAttempts($username,$result['attempts_left']);
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                    else{
+                        $attempts = $this->getUserAttemptsLeft($username);
+                        if($attempts['attempts_left']>0){
+                            return $result;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                }
+                else{
+                    return false;
+                }
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                
+                return false;
+            }
+        }
+        function correctCredentials($username,$password){
+            try {
                 $sql = "SELECT * FROM user_login WHERE username = :username AND password = :password";
                 $stmnt = $this->db->prepare($sql);
                 $stmnt->bindparam(':username',$username);
@@ -92,7 +130,7 @@
     
                 $result = $stmnt->fetch();
                 return $result;
-            } 
+            }
             catch (PDOException $e) {
                 echo $e->getMessage();
                 
@@ -122,6 +160,37 @@
     
                 $result = $stmnt->fetch();
                 return $result;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+        public function getUserAttemptsLeft($username){
+            try {
+                $sql = "SELECT attempts_left FROM user_login WHERE username = :username";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam(':username',$username);
+                $stmnt->execute();
+
+                $result = $stmnt->fetch();
+                return $result;
+            } 
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+        public function updateUserAttempts($username,$attemptsLeft){
+            try {
+                $decrement = $attemptsLeft - 1;
+                $sql = "UPDATE `user_login` SET `attempts_left` = :decrement WHERE username = :username";
+                $stmnt = $this->db->prepare($sql);
+                $stmnt->bindparam(':username',$username);
+                $stmnt->bindparam(':decrement',$decrement);
+                $stmnt->execute();
+
+                return true;
             } 
             catch (PDOException $e) {
                 echo $e->getMessage();

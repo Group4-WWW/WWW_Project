@@ -8,13 +8,14 @@
             $this->db = $db_config;
         }
 
-        public function insertClientRequest($fullname, $email, $message){
+        public function insertClientRequest($fullname, $email, $message,$time){
             try {
-                $sql = "INSERT INTO client_requests(fullname,email,message) VALUE(:fullname,:email,:message)";
+                $sql = "INSERT INTO client_requests(fullname,email,message,time) VALUE(:fullname,:email,:message,:time)";
                 $stmnt = $this->db->prepare($sql);
                 $stmnt->bindparam(':fullname',$fullname);
                 $stmnt->bindparam(':email',$email);
                 $stmnt->bindparam(':message',$message);
+                $stmnt->bindparam(':time',$time);
                 $stmnt->execute();
 
                 return true;

@@ -32,7 +32,12 @@
                 <td><?php echo $count++ ?></td>
                 <td><?php echo $r['fullname']?></td>
                 <td><?php echo $r['email']?></td>
-                <td><?php echo $r['message']?></td>
+                <td><?php 
+                    $file = "messages/".$r['fullname'].$r['time'].'.txt';
+                    $readFile = fopen($file, "r") or die("Unable to open file!");
+                    echo fread($readFile,filesize($file));
+                    fclose($readFile);
+                ?></td>
             </tr>
             <?php }?>
         </table>
