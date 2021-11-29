@@ -37,7 +37,7 @@
                     $dob = $_POST['dob'];
                     $userId = $userNew->getUserId($username);
                     if(!is_uploaded_file($_FILES['avatar']['tmp_name'])){
-                        $destination = "assests/img/2688063.png";
+                        $destination = "assets/img/2688063.png";
 
                         $insertUserInfo = $crud->insertUserInfo($fullname,$email,$userId['user_id'],$dob,$security1,$security2,$destination); //insert user in user_info table
                         $_SESSION['fullname'] = $fullname;
@@ -97,7 +97,7 @@
 					<h2>Updates</h2>
 					<span>16.10.2021</span>
 					<p>We lauched a new course for Spanish </p>
-					<a href="#">read more</a>
+					<a href="information.php">read more</a>
 				</div>
 
 				<div class="sidebar">

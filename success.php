@@ -55,7 +55,7 @@
 					<h2>Updates</h2>
                     <span>16.10.2021</span>
 					<p>We lauched a new course for Spanish </p>
-					<a href="#">read more</a>
+					<a href="information.php">read more</a>
 				</div>
 
 				<div class="sidebar">
