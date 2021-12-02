@@ -146,7 +146,7 @@
                         <input required type="username" class="input-box" placeholder="Create Username" name="username" value = "<?php if($_SERVER['REQUEST_METHOD']== 'POST') echo strip_tags($_POST['username']);?>"> 
                         <input required type="password" class="input-box" placeholder="Create Password" name="password">
                         <input required type="password" class="input-box" placeholder="Confirm Password" name="confirmPass">
-                        <?php if($flag) echo "Please type in the same password";    if($weakPass) echo '<br/>Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';                     //if flag is raised prompt the user that passwords didn't match?> 
+                        <?php if($flag) echo "<br/>Please type in the same password";    if($weakPass) echo '<br/>Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';                     //if flag is raised prompt the user that passwords didn't match?> 
                     </p>
                     <p>Add a profile picture below: <input type="file" accept="Image/*" class="file-upload-input"  name="avatar" id="avatar"></p>
                     <p><span><input required type="checkbox"></span> I agree to the terms and conditions</p>

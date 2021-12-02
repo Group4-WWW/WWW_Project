@@ -3,9 +3,6 @@
 		require_once "includes/header.php";
 		require_once "db/db_config.php";
 		require_once "includes/auth.php";	//Ajax is implemented on this page
-		if(isset($_SESSION['id'])){
-			
-		}
 ?>	
 
 			
@@ -63,7 +60,7 @@
 						echo "<a onclick='pleaseLogin()' href='#'><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
 					}
 					else{
-						echo "<a href='downloads/Complete English Course B2- C1.pdf?id=1' download=''><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
+						echo "<a onclick='increment()' href='downloads/Complete English Course B2- C1.pdf?id=1' download=''><img src='assets\img\button.png' alt= 'English B1-C1' height='70px'></a>";
 					}?>
 					<br>
 					<hr>
@@ -100,11 +97,13 @@
 						<br>
 			</div>
 		</div>
-
 		<script>
 			function pleaseLogin(){
 				alert("Please Login to download!");
 			}
+		</script>
+
+		<script>
 			function increment() {
 				$.ajax({
 					type: "POST",

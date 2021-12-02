@@ -68,10 +68,13 @@
 				<hr>
 				<br>
 			</div>
+
 			<script>
 				function pleaseLogin(){
 					alert("Please Login to download!");
 				}
+			</script>
+			<script>
 				function increment() {
 					$.ajax({
 						type: "POST",
